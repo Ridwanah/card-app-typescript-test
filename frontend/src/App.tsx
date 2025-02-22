@@ -61,6 +61,5 @@ export default function App() {
     </EntryProvider>
     </Router>
     </section>
-    
   );
 }

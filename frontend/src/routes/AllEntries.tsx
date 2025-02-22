@@ -29,7 +29,8 @@ export default function AllEntries({ darkMode } : AllEntryProps){
                             <button onClick={()=> {deleteEntry(entry.id as string)}} className="m-1 md:m-2 p-1 font-semibold rounded-md bg-red-500 hover:bg-red-700">✖</button>
                             <button onClick={()=> {navigate(`/edit/${entry.id}`, { replace: true });}} className="m-1 md:m-2 p-1 font-semibold rounded-md bg-blue-500 hover:bg-blue-700">🖊</button>
                         </div>
-                        <time className="text-right text-sm md:text-lg">{new Date(entry.created_at.toString()).toLocaleDateString()}</time>
+                        <time className="text-right text-sm md:text-lg">{`Created At: ${new Date(entry.created_at.toString()).toLocaleDateString()}`}</time>
+                        <time className="text-right text-sm md:text-lg">{`Scheduled On: ${new Date(entry.scheduled_date.toString()).toLocaleDateString()}`}</time>
                         </section>
                         
                     </div>
