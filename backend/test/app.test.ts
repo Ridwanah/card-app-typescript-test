@@ -43,7 +43,7 @@ test("Test edit an existing entry", async () => {
     url: "/create/",
     payload: testEntry,
   });
-  
+
   const createdEntry = JSON.parse(newEntry.body);
   const response = await server.inject({
     method: "PUT",
