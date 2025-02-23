@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node ./src/app.ts",
     "dev": "nodemon -e ts,prisma,sql ./src/app.ts",
-    "test": "jest --testPathPattern=test/",
+    "test": "DATABASE_URL='file:dev?mode=memory' jest",
     "prisma-setup": "prisma migrate dev && prisma generate"
   },
   "keywords": [],
