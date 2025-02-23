@@ -4,15 +4,9 @@ import { server } from "../src/server";
 const prisma = new PrismaClient();
 
 beforeAll(async () => {
-  await prisma.$executeRaw`CREATE TABLE IF NOT EXISTS "Entry" (
-        id TEXT PRIMARY KEY,
-        title TEXT,
-        description TEXT,
-        created_at DATETIME,
-        scheduled_date DATETIME
-      );`;
   await prisma.$connect();
 });
+
 beforeEach(async () => {
   await prisma.entry.deleteMany();
 });
@@ -20,6 +14,7 @@ beforeEach(async () => {
 afterEach(async () => {
   await prisma.$disconnect();
 });
+
 const testEntry: Omit<Entry, "id"> = {
   title: "Test Entry",
   description: "Testing.",
@@ -48,6 +43,7 @@ test("Test edit an existing entry", async () => {
     url: "/create/",
     payload: testEntry,
   });
+  
   const createdEntry = JSON.parse(newEntry.body);
   const response = await server.inject({
     method: "PUT",
