@@ -54,12 +54,14 @@ export default function AllEntries({ darkMode }: AllEntryProps) {
                   🖊
                 </button>
               </div>
-              <time className="text-right text-sm md:text-lg">{`Created At: ${new Date(
-                entry.created_at.toString()
-              ).toLocaleDateString()}`}</time>
-              <time className="text-right text-sm md:text-lg">{`Scheduled On: ${new Date(
-                entry.scheduled_date.toString()
-              ).toLocaleDateString()}`}</time>
+              <div className="flex flex-col items-end text-sm md:text-lg">
+                <time className="flex justify-end space-x-2">{`Created At: ${new Date(
+                  entry.created_at.toString()
+                ).toLocaleDateString()}`}</time>
+                <time className="flex justify-end space-x-2">{`Scheduled: ${new Date(
+                  entry.scheduled_date.toString()
+                ).toLocaleDateString()}`}</time>
+              </div>
             </section>
           </div>
         );
